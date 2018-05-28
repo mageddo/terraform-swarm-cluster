@@ -1,0 +1,11 @@
+version: '2'
+services:
+  mg-swarm-cluster:
+    container_name: mg-swarm-cluster
+    build:
+      context: .
+    volumes:
+      - ./:/app
+    working_dir: /app
+    command: tail -f /dev/null
+    network_mode: bridge
