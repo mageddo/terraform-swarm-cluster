@@ -80,5 +80,40 @@ resource "digitalocean_firewall" "swarm-cluster-ssh-access" {
       source_droplet_ids = ["${var.ssh_access_droplet_ids}"]
       source_addresses   = ["${var.ssh_access_from_adresses}"]
     },
+    {
+      protocol           = "tcp"
+      port_range         = "80"
+      source_tags        = ["${var.ssh_access_tags}"]
+      source_droplet_ids = ["${var.ssh_access_droplet_ids}"]
+      source_addresses   = ["${var.ssh_access_from_adresses}"]
+    },
+    {
+      protocol           = "tcp"
+      port_range         = "443"
+      source_tags        = ["${var.ssh_access_tags}"]
+      source_droplet_ids = ["${var.ssh_access_droplet_ids}"]
+      source_addresses   = ["${var.ssh_access_from_adresses}"]
+    },
+    {
+      protocol           = "tcp"
+      port_range         = "9000"
+      source_tags        = ["${var.ssh_access_tags}"]
+      source_droplet_ids = ["${var.ssh_access_droplet_ids}"]
+      source_addresses   = ["${var.ssh_access_from_adresses}"]
+    },
+    {
+      protocol           = "tcp"
+      port_range         = "9001"
+      source_tags        = ["${var.ssh_access_tags}"]
+      source_droplet_ids = ["${var.ssh_access_droplet_ids}"]
+      source_addresses   = ["${var.ssh_access_from_adresses}"]
+    },
+    {
+      protocol           = "udp"
+      port_range         = "3333"
+      source_tags        = ["${var.ssh_access_tags}"]
+      source_droplet_ids = ["${var.ssh_access_droplet_ids}"]
+      source_addresses   = ["${var.ssh_access_from_adresses}"]
+    },
   ]
 }
