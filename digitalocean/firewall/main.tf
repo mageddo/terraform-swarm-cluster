@@ -122,5 +122,12 @@ resource "digitalocean_firewall" "swarm-cluster-ssh-access" {
       source_droplet_ids = ["${var.ssh_access_droplet_ids}"]
       source_addresses   = ["${var.ssh_access_from_adresses}"]
     },
+     {
+      protocol           = "tcp"
+      port_range         = "5432"
+      source_tags        = ["${var.ssh_access_tags}"]
+      source_droplet_ids = ["${var.ssh_access_droplet_ids}"]
+      source_addresses   = ["${var.ssh_access_from_adresses}"]
+    },
   ]
 }
